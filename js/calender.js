@@ -13,7 +13,7 @@ const renderCalendar = () => {
 
     const prevLastDay = new Date(
         date.getFullYear(),
-        date.getMonth(),
+        date.getMonth() - 1,
         0
     ).getDate();
 
@@ -51,23 +51,23 @@ const renderCalendar = () => {
         ngay += `<div class="previous-day">${prevLastDay - x + 1}</div>`
     }
 
-    // for (let i = 1; i <= lastDay; i++) {
-    //     if (i === 18 && date.getMonth() === new Date().getMonth()) {
-
-    //     } else {
-    //         ngay += `<div class="">${i}</div>`
-    //     }
-    // }
-
     for (let i = 1; i <= lastDay; i++) {
-        if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
-            ngay += `<div class="today1">${i}</div>`
-        } else if (i === 1 && date.getMonth() === 12) {
-            ngay += `<div class="today">${i}</div>`
+        if (i === 1 && date.getMonth() === new Date().getMonth()) {
+
         } else {
             ngay += `<div class="">${i}</div>`
         }
     }
+
+    // for (let i = 1; i <= lastDay; i++) {
+    //     if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
+    //         ngay += `<div class="today1">${i}</div>`
+    //     } else if (i === 1 && date.getMonth() === 11) {
+    //         ngay += `<div class="today">${i}</div>`
+    //     } else {
+    //         ngay += `<div class="">${i}</div>`
+    //     }
+    // }
 
     for (let j = 1; j <= nextDays + 1; j++) {
         ngay += `<div class="next-ngay">${j}</div>`
